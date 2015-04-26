@@ -2,7 +2,7 @@
 Dead simple UIButton with a companion UIActivityIndicator written in Swift
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/raulriera/LoadingButton/master/Demo.gif" />
+  <img src="https://github.com/raulriera/LoadingButton/raw/master/Demo.gif" />
 </p>
 
 ## Usage:
