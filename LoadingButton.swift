@@ -12,6 +12,10 @@ public class LoadingButton: UIButton {
 
     private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     private var lastKnownTitle: String?
+    /// A Boolean value indicating whether a loading operation has been triggered and is in progress. (read-only)
+    public var loading: Bool {
+        return activityIndicator.isAnimating()
+    }
 
     /**
     Tells the control that a loading operation was started programmatically.
