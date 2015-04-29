@@ -23,7 +23,7 @@ public class LoadingButton: UIButton {
     Call this method when an external event source triggers a programmatic loading event. This method updates the state of the button control to reflect the in-progress loading operation. When the loading operation ends, be sure to call the endLoading method to return the control to its default state.
     */
     public func beginLoading() {
-        lastKnownTitle = titleLabel?.text
+        lastKnownTitle = currentTitle
         setTitle("", forState: .Normal)
         activityIndicator.startAnimating()
     }
@@ -49,10 +49,12 @@ public class LoadingButton: UIButton {
 
     // MARK: Overrides
 
-    override public func sendAction(action: Selector, to target: AnyObject?, forEvent event: UIEvent?) {
-        super.sendAction(action, to: target, forEvent: event)
+    public override func endTrackingWithTouch(touch: UITouch, withEvent event: UIEvent) {
+        super.endTrackingWithTouch(touch, withEvent:event)
 
-        beginLoading()
+        if touch.tapCount > 0 {
+            beginLoading()
+        }
     }
 
     override public func layoutSubviews() {
