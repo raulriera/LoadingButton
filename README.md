@@ -15,7 +15,7 @@ github "raulriera/LoadingButton"
 
 ## Usage:
 
-Simply create an instance of `LoadingButton` and call `beginLoading` to turn it into an activity indicator, when you are done call `endLoading`.
+Create an instance of `LoadingButton` and call `beginLoading()` to turn it into an activity indicator, when you are done call `endLoading()`.
 
 ## About:
 Created by Raul Riera, [@raulriera](http://twitter.com/raulriera)
