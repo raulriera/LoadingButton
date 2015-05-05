@@ -26,6 +26,7 @@ public class LoadingButton: UIButton {
         lastKnownTitle = currentTitle
         setTitle("", forState: .Normal)
         activityIndicator.startAnimating()
+        enabled = false
     }
 
     /**
@@ -36,6 +37,7 @@ public class LoadingButton: UIButton {
     public func endLoading() {
         setTitle(lastKnownTitle, forState: .Normal)
         activityIndicator.stopAnimating()
+        enabled = true
     }
 
     private func configureActivityIndicator() {
