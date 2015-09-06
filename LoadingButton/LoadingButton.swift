@@ -40,21 +40,28 @@ public class LoadingButton: UIButton {
         enabled = true
     }
 
+    // MARK: Private
+    
     private func configureActivityIndicator() {
+        // Allow this method to only run once
+        guard activityIndicator.superview == .None else { return }
+                
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.setTranslatesAutoresizingMaskIntoConstraints(false)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         addSubview(activityIndicator)
 
-        addConstraint(NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: activityIndicator, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0))
+        let centerXConstraint = NSLayoutConstraint(item: activityIndicator, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0)
+        let centerYConstraint = NSLayoutConstraint(item: activityIndicator, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0)
+        
+        NSLayoutConstraint.activateConstraints([centerXConstraint, centerYConstraint])
     }
 
     // MARK: Overrides
 
-    public override func endTrackingWithTouch(touch: UITouch, withEvent event: UIEvent) {
+    public override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
         super.endTrackingWithTouch(touch, withEvent:event)
 
-        if touch.tapCount > 0 {
+        if let touch = touch where touch.tapCount > 0 {
             beginLoading()
         }
     }

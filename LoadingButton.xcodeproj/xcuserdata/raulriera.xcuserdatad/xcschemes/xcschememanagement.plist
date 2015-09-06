@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>LoadingButtonExample.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4CC6316E1B9C8051005F7EE0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4CDE1C8C1AF148B2008C12FD</key>
 		<dict>
 			<key>primary</key>
